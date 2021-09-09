@@ -5,11 +5,6 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 
 public interface PersonRepository extends CrudRepository<Person, Integer> {
-
-  //=======================================================================================
-  // RETURN PERSON DTO
-  //=======================================================================================
   @Query(nativeQuery = true, value = "SELECT name, age FROM PERSON WHERE NAME = 'John'")
   Object returnPersonDTO();
-
 }

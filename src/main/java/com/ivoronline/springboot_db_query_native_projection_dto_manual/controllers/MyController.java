@@ -19,10 +19,11 @@ public class MyController {
   @RequestMapping("ReturnPersonDTO")
   PersonDTO returnPersonDTO() throws JsonProcessingException {
 
+    //GET COLUMNS
     Object[] columns = (Object[]) personRepository.returnPersonDTO();     //["John",20]
 
     //DISPLAY COLUMNS
-    String columnsJSON = new ObjectMapper().writeValueAsString(columns);  //["John",20]
+    String columnsJSON = new ObjectMapper().writeValueAsString(columns);
     System.out.println(columnsJSON);
 
     //MAP COLUMNS INTO DTO
