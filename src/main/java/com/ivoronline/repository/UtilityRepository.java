@@ -9,7 +9,7 @@ public interface UtilityRepository extends CrudRepository<Utility, Integer> {
   //========================================================================================
   // GET COLUMNS
   //=======================================================================================
-  @Query(value = "SELECT name, age FROM PERSON WHERE NAME = 'Bill'", nativeQuery = true)
+  @Query(value = "SELECT NAME, AGE  FROM PERSON WHERE NAME = 'Bill'", nativeQuery = true)
   Object getColumns();
 
 }
