@@ -1,9 +1,9 @@
-package com.ivoronline.springboot_db_query_native_projection_dto_manual.controllers;
+package com.ivoronline.controller;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.ivoronline.springboot_db_query_native_projection_dto_manual.dto.PersonDTO;
-import com.ivoronline.springboot_db_query_native_projection_dto_manual.repositories.PersonRepository;
+import com.ivoronline.dto.PersonDTO;
+import com.ivoronline.repository.UtilityRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -11,16 +11,17 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class MyController {
 
-  @Autowired PersonRepository personRepository;
+  //PROPERTIES
+  @Autowired UtilityRepository utilityRepository;
 
   //================================================================
-  // RETURN PERSON DTO
+  // GET PERSON DTO
   //================================================================
-  @RequestMapping("ReturnPersonDTO")
+  @RequestMapping("GetPersonDTO")
   PersonDTO returnPersonDTO() throws JsonProcessingException {
 
     //GET COLUMNS
-    Object[] columns = (Object[]) personRepository.selectPerson();     //["John",20]
+    Object[] columns = (Object[]) utilityRepository.getColumns(); //["Bill",30]
 
     //DISPLAY COLUMNS
     String columnsJSON = new ObjectMapper().writeValueAsString(columns);
